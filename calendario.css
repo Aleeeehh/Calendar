@@ -1,0 +1,169 @@
+html {
+    font-family: 'Times New Roman', Times, serif;
+    color: #4A4A4A;
+}
+
+
+body {
+    min-height: 100vh;
+    background: #faf4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* Stack on mobile */
+    width: 100%;
+    max-width: 1200px;
+    /* Adjust based on your preference */
+}
+
+header {
+    width: calc(100% - 2em);
+    /* Adjusting the width to account for margin */
+    max-width: 600px;
+    /* Assuming each main section is about 50% of 1200px */
+    margin: 1em auto;
+    padding: 0 1em;
+    /* Match main element padding for alignment */
+    box-sizing: border-box;
+    /* Ensures padding is included in the width */
+
+}
+
+main {
+    flex: 1;
+    margin: 1em;
+    padding: 1.5em;
+    background-color: #fdf4f4;
+    border: 3px solid #e08e22;
+    border-radius: 30px;
+}
+
+main p {
+    font-size: 95%;
+}
+
+main div {
+    font-size: 125%;
+}
+
+
+@media (min-width: 768px) {
+    header {
+        text-align: left;
+        margin: 1em 1em 1em 0;
+        /* Align the header with the left main element */
+        max-width: none;
+        /* Remove max-width restriction on larger screens */
+        width: auto;
+        /* Allow the header to fit its content */
+        padding-left: 1.5em;
+        /* Match the main element's padding for exact alignment */
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        /* Side by side on desktop */
+    }
+
+    main {
+        width: calc(50% - 2em);
+        /* Adjust width to account for margins */
+        margin: 1em;
+        /* Ensure this matches the header margin */
+        padding: 1.5em;
+        /* Matched in the header for alignment */
+    }
+}
+
+.month-indicator {
+    border-radius: 15px;
+    background-color: #e08e22;
+    color: #ffffff;
+    /* Keeping the theme consistent */
+    text-align: center;
+    font-weight: 500;
+}
+
+.day-of-week,
+.date-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.day-of-week {
+    margin-top: 1.25em;
+
+}
+
+
+.day-of-week>* {
+    font-size: 0.85em;
+    /* Slightly larger for readability */
+    color: #000000;
+    /* Contrast color for headers */
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+.day-of-week>div:nth-child(6),
+.day-of-week>div:nth-child(7) {
+    /* Sabato e Domenica*/
+    color: #e08e22;
+}
+
+.date-grid {
+    margin-top: 0.5em;
+    padding-left: 10px;
+}
+
+.date-grid button:first-child {
+    grid-column: 5;
+}
+
+.date-grid button {
+    position: relative;
+    border: 0;
+    width: 4.5ch;
+    height: 4.5ch;
+    border-radius: 50%;
+    background-color: transparent;
+    color: #000000;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+}
+
+/*green week-end*/
+.date-grid button:nth-child(2),
+.date-grid button:nth-child(3),
+.date-grid button:nth-child(9),
+.date-grid button:nth-child(10),
+.date-grid button:nth-child(16),
+.date-grid button:nth-child(17),
+.date-grid button:nth-child(23),
+.date-grid button:nth-child(24),
+.date-grid button:nth-child(30),
+.date-grid button:nth-child(31) {
+    color: #e08e22;
+}
+
+.date-grid button:hover,
+.date-grid button:focus {
+    outline: none;
+    background-color: #e08e22;
+    color: #FFFFFF;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.date-grid button:active {
+    background-color: #bc771b;
+    color: #FFFFFF;
+}
